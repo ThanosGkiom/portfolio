@@ -1,0 +1,97 @@
+@use "../abstract/" as *;
+
+@layer config {
+  @property --container-padding {
+    syntax: "<length>";
+    inherits: false;
+    initial-value: 25px;
+  }
+
+  @property --container-width {
+    syntax: "<length>";
+    inherits: false;
+    initial-value: 800px;
+  }
+
+  @property --container-width-narrow {
+    syntax: "<length>";
+    inherits: false;
+    initial-value: 600px;
+  }
+
+  @property --section-gap {
+    syntax: "<length>";
+    inherits: false;
+    initial-value: 60px;
+  }
+
+  @property --transition-duration {
+    syntax: "<time>";
+    inherits: false;
+    initial-value: 0.3s;
+  }
+
+  @property --transition-timing-function {
+    syntax: "linear | ease | ease-in | ease-out | ease-in-out";
+    inherits: false;
+    initial-value: linear;
+  }
+
+  :root {
+    color-scheme: light dark;
+    --transition: var(--transition-duration, 0.3s)
+      var(--transition-timing-function, ease);
+  }
+
+  html {
+    scroll-padding-top: var(--header-height);
+    scroll-behavior: smooth;
+
+    &[data-theme="dark"] {
+      color-scheme: dark;
+    }
+
+    &[data-theme="light"] {
+      color-scheme: light;
+    }
+
+    &:has(header.menu__open) {
+      overflow-y: clip;
+    }
+  }
+
+  #app {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100vh;
+
+    background-color: var(--clr-background-main);
+    color: var(--clr-font-main);
+  }
+
+  main {
+    padding-block: var(--header-height, var(--section-gap, 60px));
+    flex-grow: 1;
+  }
+
+  .container {
+    padding-inline: var(--container-padding);
+    margin-inline: auto;
+
+    &:not(.narrow) {
+      max-width: var(--container-width);
+    }
+
+    &.narrow {
+      max-width: var(--container-width-narrow);
+    }
+  }
+
+  img {
+    display: block;
+    height: auto;
+    object-fit: cover;
+    max-width: 100%;
+  }
+}

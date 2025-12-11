@@ -1,0 +1,23 @@
+@use "../abstract" as *;
+
+.link-whole {
+    &::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-color: transparent;
+        z-index: 10;
+    }
+
+    &__over {
+        position: relative;
+        z-index: 11;
+    }
+}
+
+.link-social {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+

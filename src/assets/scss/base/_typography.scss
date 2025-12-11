@@ -1,0 +1,144 @@
+@use "../abstract/" as *;
+
+@layer config {
+    body {
+        font-size: 16px;
+        line-height: 24px;
+        font-weight: 400;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .html-content {
+        @include font(14px, 22px);
+
+        > * {
+            &:not(:last-child) {
+                margin-bottom: 24px;
+            }
+        }
+
+        h2 {
+            @include font(28px, 36px, 700);
+        }
+
+        h3 {
+            @include font(24px, 32px, 500);
+        }
+
+        h4 {
+            @include font(20px, 28px, 500);
+        }
+
+        h5 {
+            @include font(20px, 28px);
+        }
+
+        h6 {
+            @include font(18px, 26px, 700);
+        }
+
+        @for $i from 1 to 6 {
+            h#{$i} {
+                &:not(:first-child) {
+                    margin-top: 40px;
+                }
+            }
+        }
+
+        a {
+            text-decoration: underline;
+
+            @include hover {
+                text-decoration: unset;
+            }
+        }
+
+        strong,
+        b {
+            font-weight: 700;
+        }
+
+        blockquote {
+            &:first-child {
+                margin-top: unset;
+            }
+
+            cite {
+                @include font(16px, 24px);
+                font-style: italic;
+                display: block;
+                margin-top: 1em;
+
+                &::before {
+                    content: "- ";
+                }
+            }
+
+            @include mqMin($lg) {
+                @include font(32px, 42px);
+                margin-top: 50px;
+
+                &:not(:last-child) {
+                    margin-bottom: 50px;
+                }
+            }
+
+            @include mqMax($lg) {
+                @include font(22px, 30px);
+                margin-top: 40px;
+
+                &:not(:last-child) {
+                    margin-bottom: 40px;
+                }
+            }
+        }
+
+        pre {
+            background-color: var(--clr-secondary);
+            padding: 1em;
+            overflow-x: auto;
+        }
+
+        ul,
+        ol {
+            padding-left: 20px;
+
+            li {
+                padding-left: 5px;
+            }
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+
+            th,
+            td {
+                vertical-align: top;
+
+                &:not(tr:last-child th, tr:last-child td) {
+                    padding-bottom: 24px;
+                }
+
+                &:first-child {
+                    width: calc(_clamp(110px, 200px) + _clamp(24px, 60px));
+                    padding-right: _clamp(24px, 60px);
+                }
+            }
+        }
+
+        img {
+            width: 100%;
+            height: auto;
+        }
+
+        figure {
+            margin: 0;
+        }
+
+        figcaption {
+            text-align: center;
+            font-style: italic;
+        }
+    }
+}

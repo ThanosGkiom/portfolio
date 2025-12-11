@@ -1,0 +1,130 @@
+@layer reset {
+    *,
+    *::before,
+    *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    input,
+    textarea {
+        background: none;
+        border: none;
+
+        &:focus,
+        &:focus-visible {
+            outline: none;
+        }
+    }
+
+    [popover] {
+        border: unset;
+    }
+
+    // Hide recaptcha badge
+    .grecaptcha-badge {
+        visibility: hidden;
+    }
+
+    ol,
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    button {
+        background: unset;
+        border: unset;
+        cursor: pointer;
+    }
+
+    a,
+    button {
+        font: inherit;
+        color: inherit;
+
+        &:focus {
+            outline: none;
+        }
+    }
+
+    b,
+    strong {
+        font-weight: inherit;
+    }
+
+    blockquote {
+        margin: unset;
+    }
+
+    input,
+    textarea {
+        color: inherit
+    }
+}
+
+
+// blockquote {
+//     margin: unset;
+// }
+
+// //* Google maps API styles
+// .gm-ui-hover-effect,
+// .gm-style-iw-tc {
+//     display: none !important;
+// }
+
+// .gm-style .gm-style-iw-c {
+//     box-shadow: unset !important;
+// }
+
+// .gm-style iframe + div {
+//     border: none !important;
+// }
+
+// //* Bootstrap reset
+// .form-control {
+//     border: unset;
+//     border-radius: unset;
+//     background: transparent;
+
+//     &:focus,
+//     &:focus-visible {
+//         outline: unset;
+//         box-shadow: unset;
+//         border: unset;
+//     }
+// }
+
+// .form-floating > .form-control:focus ~ label,
+// .form-floating > .form-control:not(:placeholder-shown) ~ label,
+// .form-floating > .form-control-plaintext ~ label,
+// .form-floating > .form-select ~ label {
+//     color: unset;
+
+//     &::after {
+//         content: unset;
+//     }
+// }
+
+// .form-control {
+//     &:focus {
+//         color: unset;
+//         background-color: unset;
+//     }
+// }
+
+// [popover] {
+//     border: unset;
+// }
+
+// // Hide recaptcha badge
+// .grecaptcha-badge {
+//     display: none !important;
+// }

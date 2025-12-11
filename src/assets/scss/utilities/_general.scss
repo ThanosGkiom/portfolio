@@ -1,0 +1,27 @@
+@use "../abstract" as *;
+
+@layer utilities {
+	.extend {
+		padding-block: var(--section-gap);
+
+		&-top {
+			padding-top: var(--section-gap);
+		}
+
+		&-bottom {
+			padding-bottom: var(--section-gap);
+		}
+	}
+
+	.space {
+		margin-block: var(--section-gap);
+
+		&-top {
+			margin-top: var(--section-gap);
+		}
+
+		&-bottom {
+			margin-bottom: var(--section-gap);
+		}
+	}
+}

@@ -1,0 +1,155 @@
+@mixin mqMinMax($size-min: null, $size-max: null) {
+    @if $size-min ==null and $size-max ==null {
+        @error "Min and Max size has to be set";
+    }
+
+    @else if $size-min ==null {
+        @error "Min size has to be set";
+    }
+
+    @else if $size-max ==null {
+        @error "Max size has to be set";
+    }
+
+    @else {
+        $size-max: $size-max - 1px;
+
+        @media (min-width: $size-min) and (max-width: $size-max) {
+            @content;
+        }
+    }
+}
+
+@mixin mqMin($size-min) {
+    @if $size-min ==null {
+        @error "Min size has to be set";
+    }
+
+    @media (min-width: $size-min) {
+        @content;
+    }
+}
+
+@mixin mqMax($size-max) {
+    @if $size-max ==null {
+        @error "Max size has to be set";
+    }
+
+    $size-max: $size-max - 1px;
+
+    @media (max-width: $size-max) {
+        @content;
+    }
+}
+
+@mixin cqMinMax($size-min, $size-max, $container-name: body) {
+    @if $size-min ==null and $size-max ==null {
+        @error "Min and Max size has to be set";
+    }
+
+    @else if $size-min ==null {
+        @error "Min size has to be set";
+    }
+
+    @else if $size-max ==null {
+        @error "Max size has to be set";
+    }
+
+    @else {
+        $size-max: $size-max - 1px;
+
+        @container #{$container-name} (width >=#{$size-min}) and (width <=#{$size-max}) {
+            @content;
+        }
+    }
+}
+
+@mixin cqMin($size-min, $container-name: body) {
+    @if $size-min ==null {
+        @error "Min size has to be set";
+    }
+
+    @container #{$container-name} (width >=#{$size-min}) {
+        @content;
+    }
+}
+
+@mixin cqMax($size-max, $container-name: body) {
+    @if $size-max ==null {
+        @error "Max size has to be set";
+    }
+
+    $size-max: $size-max - 1px;
+
+    @container #{$container-name} (width <=#{$size-max}) {
+        @content;
+    }
+}
+
+@mixin cqCustom($query, $container-name: body) {
+    @if $query ==null {
+        @error "You must pass a container query string";
+    }
+
+    @container #{$container-name} (#{$query}) {
+        @content;
+    }
+}
+
+@mixin font($size: 1rem, $height: 1.25, $weight: 400, $spacing: normal) {
+    font-size: $size;
+    line-height: $height;
+    font-weight: $weight;
+    // font-variation-settings: "wght"$weight;
+    letter-spacing: $spacing;
+}
+
+@mixin hover($props...) {
+    @include fine {
+        @if length($props)>0 {
+            transition: var(--transition);
+            transition-property: $props;
+        }
+
+        &:hover,
+        &:focus-visible {
+            @content;
+        }
+    }
+}
+
+$__fine-active: false !default;
+$__coarse-active: false !default;
+
+@mixin fine {
+    @if $__fine-active ==false {
+        $__fine-active: true !global;
+
+        @media (pointer: fine) and (hover: hover) {
+            @content;
+        }
+
+        $__fine-active: false !global;
+    }
+
+    @else {
+        @content;
+    }
+}
+
+
+@mixin coarse {
+    @if $__coarse-active ==false {
+        $__coarse-active: true !global;
+
+        @media (pointer: coarse) and (hover: none) {
+            @content;
+        }
+
+        $__coarse-active: false !global;
+    }
+
+    @else {
+        @content;
+    }
+}

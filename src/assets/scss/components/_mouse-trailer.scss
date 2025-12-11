@@ -1,0 +1,33 @@
+@use "../abstract/" as *;
+
+@layer components {
+    #mouse {
+        position: fixed;
+        z-index: -1;
+        background-color: red;
+        border-radius: 50%;
+        width: 50px;
+        height: auto;
+        aspect-ratio: 1;
+        left: var(--position-x);
+        top: var(--position-y);
+        transform: translate(-50%, -50%);
+
+        @include coarse {
+            display: none;
+        }
+    }
+
+    @property --position-x {
+        syntax: "<length>";
+        inherits: false;
+        initial-value: 0px;
+    }
+
+    @property --position-y {
+        syntax: "<length>";
+        inherits: false;
+        initial-value: 0px;
+    }
+}
+
