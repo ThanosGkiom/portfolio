@@ -1,33 +1,4 @@
 @use "../../abstract/" as *;
 
 @layer components {
-    .main-btn {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: var(--clr-primary);
-        background-color: var(--clr-white);
-        text-align: center;
-        transition: color var(--transition), background-color var(--transition);
-        max-width: fit-content;
-
-        @include hover(false) {
-            color: var(--clr-white);
-            background-color: var(--clr-primary);
-        }
-
-        @include mqMin($lg) {
-            height: 50px;
-            padding-inline: 40px;
-
-            @include font(14px, 17px, 700, 2.1px);
-        }
-
-        @include mqMax($lg) {
-            height: 36px;
-            padding-inline: 32px;
-
-            @include font(10px, 12px, 700, 1.5px);
-        }
-    }
 }

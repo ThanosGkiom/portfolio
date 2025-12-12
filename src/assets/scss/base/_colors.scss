@@ -1,8 +1,9 @@
 @layer colors {
 	:root {
-		--clr-background-main: light-dark(#fff, #030303);
-		--clr-background-alt: light-dark(#030303, #fff);
-		--clr-font-main: light-dark(#030303, #fff);
-		--clr-font-alt: #fff;
+		--clr-bg-main: light-dark(#fff, #030303);
+		--clr-bg-alt: light-dark(#030303, #fff);
+		--clr-text-main: light-dark(#030303, #fff);
+		--clr-text-alt: light-dark(#fff, #030303);
+		--clr-text-muted: light-dark(#6c6c6c, #999);
 	}
 }

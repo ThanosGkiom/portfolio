@@ -1,13 +1,15 @@
 <script setup lang="ts">
-import Socials from '@/core/components/common/Socials.vue'
+import { storeToRefs } from 'pinia';
+import { useMenuStore } from '@/core/store/menu';
+import Socials from '@/core/components/common/Socials.vue';
 
-const toggleMenu = () => {
-    console.log('TEST')
-}
+const menuStore = useMenuStore();
+const { isMenuOpen } = storeToRefs(menuStore);
+
 </script>
 
 <template>
-    <header>
+    <header :class="{ 'menu__open': isMenuOpen }">
         <div class="container">
             <Socials />
 
@@ -19,18 +21,25 @@ const toggleMenu = () => {
                 </picture>
             </router-link>
 
-            <nav>
-                <router-link to="/">Home</router-link>
-                <router-link to="/about">About</router-link>
-                <router-link to="/projects">Projects</router-link>
-                <router-link to="/contact">Contact</router-link>
+            <nav class="header-nav">
+                <ul>
+                    <li>
+                        <router-link to="/about">About</router-link>
+                    </li>
+                    <li>
+                        <router-link to="/projects">Projects</router-link>
+                    </li>
+                    <li>
+                        <router-link to="/contact">Contact</router-link>
+                    </li>
+                </ul>
             </nav>
 
-            <!-- <button @click="toggleMenu" class="menu-btn">
+            <button @click="menuStore.toggleMenu" class="menu-btn">
                 <span></span>
                 <span></span>
                 <span></span>
-            </button> -->
+            </button>
         </div>
     </header>
 </template>

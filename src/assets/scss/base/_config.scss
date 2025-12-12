@@ -47,6 +47,8 @@
     scroll-padding-top: var(--header-height);
     scroll-behavior: smooth;
 
+    cursor: none;
+
     &[data-theme="dark"] {
       color-scheme: dark;
     }
@@ -66,25 +68,28 @@
     justify-content: space-between;
     min-height: 100vh;
 
-    background-color: var(--clr-background-main);
-    color: var(--clr-font-main);
+    background-color: var(--clr-bg-main);
+    color: var(--clr-text-main);
   }
 
   main {
-    padding-block: var(--header-height, var(--section-gap, 60px));
+    padding-top: calc(var(--header-height) + (var(--section-gap) / 2));
+    padding-bottom: calc(var(--section-gap) / 2);
     flex-grow: 1;
   }
 
   .container {
-    padding-inline: var(--container-padding);
     margin-inline: auto;
+    max-width: var(--container-width);
+    padding-inline: var(--container-padding);
 
-    &:not(.narrow) {
-      max-width: var(--container-width);
-    }
-
-    &.narrow {
-      max-width: var(--container-width-narrow);
+    @include mqMin($md) {
+      &.narrow {
+        padding-inline: calc(
+          var(--container-padding) +
+            (var(--container-width) - var(--container-width-narrow)) / 2
+        );
+      }
     }
   }
 
@@ -93,5 +98,15 @@
     height: auto;
     object-fit: cover;
     max-width: 100%;
+  }
+
+  a,
+  button {
+    cursor: none;
+
+    &:focus-visible {
+      outline: 1px solid var(--clr-bg-alt);
+      outline-offset: 4px;
+    }
   }
 }

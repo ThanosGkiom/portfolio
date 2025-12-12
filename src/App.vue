@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import Header from './core/components/layout/Header.vue';
 import Footer from './core/components/layout/Footer.vue';
+import MouseTrailer from './core/components/common/MouseTrailer.vue';
 
 </script>
 
@@ -12,4 +13,6 @@ import Footer from './core/components/layout/Footer.vue';
 	</main>
 
 	<Footer />
+
+	<MouseTrailer />
 </template>

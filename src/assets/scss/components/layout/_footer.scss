@@ -1,9 +1,14 @@
 footer {
     padding-block: 2rem 1rem;
+    border-top: 1px solid var(--clr-bg-alt);
 
     >.container{
         display: flex;
         justify-content: space-between;
         align-items: center;
+    }
+
+    .last-updated{
+        color: var(--clr-text-muted);
     }
 }

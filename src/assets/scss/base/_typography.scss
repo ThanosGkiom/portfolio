@@ -2,45 +2,45 @@
 
 @layer config {
     body {
-        font-size: 16px;
-        line-height: 24px;
+        font-size: 1rem;
+        line-height: 1.5rem;
         font-weight: 400;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
 
     .html-content {
-        @include font(14px, 22px);
+        @include font(1rem, 1.5rem);
 
         > * {
             &:not(:last-child) {
-                margin-bottom: 24px;
+                margin-bottom: 1.5rem;
             }
         }
 
         h2 {
-            @include font(28px, 36px, 700);
+            @include font(2rem, 2.5rem, 700);
         }
 
         h3 {
-            @include font(24px, 32px, 500);
+            @include font(1.5rem, 2rem, 500);
         }
 
         h4 {
-            @include font(20px, 28px, 500);
+            @include font(1.25rem, 1.75rem, 500);
         }
 
         h5 {
-            @include font(20px, 28px);
+            @include font(1rem, 1.5rem, 700);
         }
 
         h6 {
-            @include font(18px, 26px, 700);
+            @include font(1rem, 1.5rem, 500);
         }
 
         @for $i from 1 to 6 {
             h#{$i} {
                 &:not(:first-child) {
-                    margin-top: 40px;
+                    margin-top: 2.5rem;
                 }
             }
         }
@@ -64,7 +64,7 @@
             }
 
             cite {
-                @include font(16px, 24px);
+                @include font(1rem, 1.5rem, 500);
                 font-style: italic;
                 display: block;
                 margin-top: 1em;
@@ -74,8 +74,8 @@
                 }
             }
 
-            @include mqMin($lg) {
-                @include font(32px, 42px);
+            @include mqMin($md) {
+                @include font(2rem, 2.5rem, 500);
                 margin-top: 50px;
 
                 &:not(:last-child) {
@@ -83,28 +83,27 @@
                 }
             }
 
-            @include mqMax($lg) {
-                @include font(22px, 30px);
-                margin-top: 40px;
+            @include mqMax($md) {
+                @include font(1.5rem, 2rem, 500);
+                margin-top: 2.5rem;
 
                 &:not(:last-child) {
-                    margin-bottom: 40px;
+                    margin-bottom: 2.5rem;
                 }
             }
         }
 
         pre {
-            background-color: var(--clr-secondary);
             padding: 1em;
             overflow-x: auto;
         }
 
         ul,
         ol {
-            padding-left: 20px;
+            padding-left: 1.25rem;
 
             li {
-                padding-left: 5px;
+                padding-left: .25rem;
             }
         }
 
@@ -117,7 +116,7 @@
                 vertical-align: top;
 
                 &:not(tr:last-child th, tr:last-child td) {
-                    padding-bottom: 24px;
+                    padding-bottom: 1.5rem;
                 }
 
                 &:first-child {
