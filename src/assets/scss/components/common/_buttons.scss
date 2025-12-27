@@ -1,0 +1,30 @@
+@use '../../abstract' as *;
+
+@layer components {
+  .btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 1rem 2rem;
+    @include transition(translate);
+
+    &.large {}
+
+    @include hover {
+      translate: 0 -.25em;
+    }
+  }
+
+  .main-btn {
+    @extend .btn;
+
+    background-color: var(--clr-accent);
+    color: var(--clr-bg);
+    border: none;
+
+    @include hover {
+      background-color: var(--clr-accent-light);
+    }
+  }
+}

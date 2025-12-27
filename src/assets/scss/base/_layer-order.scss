@@ -1,0 +1,6 @@
+// ==========================================================================
+// CSS Layer Order
+// Establishes cascade hierarchy for the design system
+// ==========================================================================
+
+@layer reset, config, colors, components, utilities;

@@ -1,0 +1,23 @@
+@use '../../abstract' as *;
+
+@layer components {
+    .section {
+        padding-block: $space-lg;
+        scroll-margin-top: var(--header-height);
+
+        >.container {
+            display: grid;
+            gap: $space-md;
+        }
+
+        &__title {
+            @include font(0.875rem, 500);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--clr-text-muted);
+            padding-bottom: $space-sm;
+            border-bottom: 1px solid var(--clr-border);
+            display: inline-block;
+        }
+    }
+}

@@ -1,0 +1,68 @@
+@use '../abstract' as *;
+
+@layer config {
+    :root {
+        --font-primary: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+    }
+
+    body {
+        @include font();
+        font-family: var(--font-primary);
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-weight: 600;
+        letter-spacing: -0.02em;
+        line-height: 1.2;
+    }
+
+    // Type Scale
+    .heading-1 {
+        @include font(clamp_(48px, 80px), 600, 1.05);
+        letter-spacing: -0.03em;
+    }
+
+    .heading-2 {
+        @include font(clamp_(32px, 48px), 600, 1.15);
+    }
+
+    .heading-3 {
+        @include font(clamp_(24px, 32px), 600, 1.25);
+    }
+
+    .heading-4 {
+        @include font(clamp_(18px, 24px), 600, 1.35);
+    }
+
+    .heading-section {
+        @include font(clamp_(16px, 18px), 600, 1.6);
+    }
+
+    .text-body {
+        @include font(clamp_(16px, 18px), 400, 1.6);
+    }
+
+    .text-small {
+        @include font(clamp_(14px, 16px), 400, 1.5);
+    }
+
+    .text-mono {
+        font-family: var(--font-mono);
+        @include font(0.875em, 400, 1.6);
+        letter-spacing: 0;
+    }
+
+    .text-muted {
+        color: var(--clr-text-muted);
+    }
+
+    .text-accent {
+        color: var(--clr-accent);
+    }
+}

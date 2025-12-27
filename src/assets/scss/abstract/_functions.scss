@@ -1,0 +1,6 @@
+@function clamp_($min, $max, $min-vw: 320px, $max-vw: 1350px) {
+    $slope: calc(($max - $min) / ($max-vw - $min-vw));
+    $intercept: calc($min - ($slope * $min-vw));
+
+    @return clamp($min, calc(#{$intercept} + #{$slope * 100}vw), $max);
+}

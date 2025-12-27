@@ -1,0 +1,21 @@
+@use 'functions' as *;
+
+// Spacing
+$space-xs: clamp_(4px, 8px);
+$space-sm: clamp_(8px, 16px);
+$space-md: clamp_(16px, 24px);
+$space-lg: clamp_(24px, 48px);
+$space-xl: clamp_(48px, 96px);
+$space-2xl: clamp_(96px, 160px);
+
+// Borders
+$border-radius-sm: 4px;
+$border-radius-md: 8px;
+$border-radius-lg: 16px;
+
+// Z-indexs
+$z-negative: -1;
+$z-default: 1;
+$z-dropdown: 50;
+$z-header: 100;
+$z-modal: 1000;

@@ -1,0 +1,12 @@
+@use "../../abstract/" as *;
+
+.footer {
+    border-top: 1px solid var(--clr-border);
+    padding-block: $space-lg;
+    margin-top: $space-xl;
+    color: var(--clr-text-muted);
+    @include font(0.875rem);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}

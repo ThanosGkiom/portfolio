@@ -1,0 +1,8 @@
+// Base Module Index
+// Order matters: layer-order must be first to establish @layer hierarchy
+
+@forward 'layer-order';
+@forward 'reset';
+@forward 'config';
+@forward 'colors';
+@forward 'typography';

@@ -1,0 +1,60 @@
+@use '../../abstract' as *;
+
+@layer components {
+    .section-skills {
+        &__grid {
+            display: grid;
+            gap: $space-md;
+
+            @include mqMin($sm) {
+                grid-template: 1fr 1fr / 1fr 1fr;
+            }
+
+            @include mqMax($md) {
+                grid-template-rows: repeat(4, 1fr);
+            }
+        }
+
+        &__category {
+            padding: $space-md;
+            background-color: var(--clr-surface);
+            border: 1px solid var(--clr-border);
+            @include transition(border-color, color);
+
+            @include hover {
+                border-color: var(--clr-accent);
+                color: var(--clr-accent);
+            }
+        }
+
+        &__category-title {
+            @include font(clamp_(18px, 20px), 600);
+            color: var(--clr-text);
+            margin-bottom: $space-sm;
+        }
+
+        &__list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: $space-xs;
+        }
+
+        &__item {
+            background-color: var(--clr-bg);
+            color: var(--clr-text-muted);
+            border: 1px solid var(--clr-border);
+            border-radius: $border-radius-lg;
+            font-family: var(--font-mono);
+            cursor: default;
+
+            @include transition(border-color, color);
+            padding: .25rem 1rem;
+
+
+            @include hover {
+                color: var(--clr-accent);
+                border-color: var(--clr-accent);
+            }
+        }
+    }
+}

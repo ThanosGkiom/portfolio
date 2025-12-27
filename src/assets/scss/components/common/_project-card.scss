@@ -1,0 +1,20 @@
+@use '../../abstract/' as *;
+
+.project-card {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    text-decoration: none;
+    padding: 40px;
+
+    background-color: var(--clr-card-bg);
+    border: 1px solid var(--clr-border);
+    border-radius: 8px;
+
+    @include transition(border-color);
+
+    @include hover {
+        border-color: var(--clr-accent);
+    }
+}

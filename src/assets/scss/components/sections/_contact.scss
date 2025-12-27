@@ -1,0 +1,14 @@
+@use '../../abstract' as *;
+
+@layer components {
+  .section-contact {
+    &__intro {
+      @include font(clamp_(18px, 22px), normal, 1.6);
+    }
+
+    &__container {
+      display: grid;
+      gap: 20px;
+    }
+  }
+}

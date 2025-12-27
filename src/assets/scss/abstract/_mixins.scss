@@ -1,0 +1,60 @@
+@use '../abstract/breakpoints' as *;
+
+@mixin mqMin($size) {
+    @media (width >=$size) {
+        @content;
+    }
+}
+
+@mixin mqMax($size) {
+    @media (width < $size) {
+        @content;
+    }
+}
+
+@mixin mqCustom($query) {
+    @media #{$query} {
+        @content;
+    }
+}
+
+@mixin cqMin($size) {
+    @container (width >=$size) {
+        @content;
+    }
+}
+
+@mixin cqMax($size) {
+    @container (width < $size) {
+        @content;
+    }
+}
+
+@mixin cqCustom($name, $query) {
+    @container #{$name} #{$query} {
+        @content;
+    }
+}
+
+@mixin font($size: 16px, $weight: 400, $height: 1.6, $letter-spacing: 0) {
+    font-size: $size;
+    font-weight: $weight;
+    line-height: $height;
+    letter-spacing: $letter-spacing;
+}
+
+@mixin transition($properties...) {
+    transition: var(--transition-duration) var(--transition-timing-function);
+    transition-property: $properties;
+}
+
+@mixin hover {
+    @media (hover: hover) {
+
+        &:hover,
+        &:focus-visible,
+        &:focus-within {
+            @content;
+        }
+    }
+}
