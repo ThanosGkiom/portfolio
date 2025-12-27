@@ -50,10 +50,16 @@ defineOptions({
 
             <div class="header-nav__group">
                 <ul class="header-nav__menu header-nav__group">
-                    <li><a href="/#" class="header-nav__link">home</a></li>
-                    <li><a href="#skills" class="header-nav__link">skills</a></li>
+                    <li>
+                        <RouterLink to="/#" class="header-nav__link">home</RouterLink>
+                    </li>
+                    <li>
+                        <RouterLink to="#skills" class="header-nav__link">skills</RouterLink>
+                    </li>
                     <!-- <li><a href="#work" class="header-nav__link">Work</a></li> -->
-                    <li><a href="#contact" class="header-nav__link">contact</a></li>
+                    <li>
+                        <RouterLink to="#contact" class="header-nav__link">contact</RouterLink>
+                    </li>
                 </ul>
 
                 <!-- <button @click="themeStore.toggleTheme" :class="'header-nav__theme-toggle ' + themeStore.theme"
