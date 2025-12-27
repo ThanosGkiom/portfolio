@@ -23,8 +23,6 @@
         color: var(--clr-text);
 
         @include transition(background-color, color);
-
-        scroll-behavior: smooth;
     }
 
     .app-layout {

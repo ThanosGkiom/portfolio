@@ -3,7 +3,6 @@
 @layer components {
     .section {
         padding-block: $space-lg;
-        scroll-margin-top: var(--header-height);
 
         >.container {
             display: grid;

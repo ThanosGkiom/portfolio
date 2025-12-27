@@ -6,6 +6,7 @@ defineOptions({
     name: "AppHeader",
 });
 
+
 // const toggleMenu = () => {
 //     console.log("toggle menu");
 // }
@@ -51,14 +52,15 @@ defineOptions({
             <div class="header-nav__group">
                 <ul class="header-nav__menu header-nav__group">
                     <li>
-                        <RouterLink to="/#" class="header-nav__link">home</RouterLink>
+                        <router-link :to="{ path: '/', hash: '#home' }" class="header-nav__link">home</router-link>
                     </li>
                     <li>
-                        <RouterLink to="#skills" class="header-nav__link">skills</RouterLink>
+                        <router-link :to="{ path: '/', hash: '#skills' }" class="header-nav__link">skills</router-link>
                     </li>
                     <!-- <li><a href="#work" class="header-nav__link">Work</a></li> -->
                     <li>
-                        <RouterLink to="#contact" class="header-nav__link">contact</RouterLink>
+                        <router-link :to="{ path: '/', hash: '#contact' }" class="header-nav__link">contact
+                        </router-link>
                     </li>
                 </ul>
 

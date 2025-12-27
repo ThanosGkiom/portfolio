@@ -49,7 +49,7 @@ onMounted(async () => {
 </script>
 
 <template>
-    <section id="about" class="section section-about">
+    <section id="home" class="section section-about">
         <div class="container">
             <div class="section-about__map-wrapper">
                 <div ref="mapContainer" class="section-about__map"></div>
