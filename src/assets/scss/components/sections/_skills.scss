@@ -10,7 +10,7 @@
                 grid-template: 1fr 1fr / 1fr 1fr;
             }
 
-            @include mqMax($md) {
+            @include mqMax($sm) {
                 grid-template-rows: repeat(4, 1fr);
             }
         }

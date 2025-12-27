@@ -2,6 +2,7 @@
 import { reactive, ref } from 'vue';
 
 const apiEndpoint = import.meta.env.VITE_API_ENDPOINT;
+console.debug(apiEndpoint)
 
 const form = reactive({
     name: '',
@@ -48,11 +49,10 @@ const handleSubmit = () => {
             <div class="section__content">
                 <div class="section-contact__container">
                     <p v-if="!formSuccess" class="section-contact__intro">
-                        Send a message and I'll get back to you as soon as possible.
+                        Send a message and I'll get back to you.
                     </p>
 
-                    <form v-if="!formSuccess" @submit.prevent="handleSubmit" :action="formAction" method="POST"
-                        class="form">
+                    <form v-if="!formSuccess" @submit.prevent="handleSubmit" class="form">
                         <div class="form-input" style="--columns: 6">
                             <label for="name" class="form-input__label">Name</label>
                             <input id="name" type="text" class="form-input__field" placeholder="Your name"
