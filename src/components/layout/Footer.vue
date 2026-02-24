@@ -1,14 +1,18 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { reactive } from 'vue';
 
 defineOptions({
     name: "AppFooter",
 });
 
-const lastUpdated = ref();
+const lastUpdated = reactive({
+    url: "",
+    date: ""
+});
 
 fetch("https://api.github.com/repos/ThanosGkiom/portfolio/commits?per_page=1").then((res) => res.json()).then((data) => {
-    lastUpdated.value = data[0].commit.committer.date;
+    lastUpdated.url = data[0].html_url;
+    lastUpdated.date = data[0].commit.committer.date;
 });
 
 </script>
@@ -21,8 +25,8 @@ fetch("https://api.github.com/repos/ThanosGkiom/portfolio/commits?per_page=1").t
 
         <RouterLink to="/privacy-policy">Privacy Policy</RouterLink>
 
-        <p>
-            Last updated: {{ new Date(lastUpdated).toLocaleDateString("en-GB") }}
-        </p>
+        <a :href="lastUpdated.url" target="_blank">
+            Last updated: {{ new Date(lastUpdated.date).toLocaleDateString("en-GB") }}
+        </a>
     </footer>
 </template>

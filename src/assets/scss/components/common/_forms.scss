@@ -1,4 +1,4 @@
-@use '../../abstract' as *;
+@use "../../abstract" as *;
 
 @layer components {
     .form {
@@ -9,7 +9,7 @@
             grid-template-columns: repeat(12, 1fr);
         }
 
-        >* {
+        > * {
             @include mqMin($sm) {
                 grid-column: span var(--columns, 12);
             }
@@ -63,6 +63,143 @@
             @include font(0.75rem);
             margin-top: 0.25rem;
             color: #e74c3c;
+        }
+    }
+
+    .is-loading {
+        position: relative;
+        pointer-events: none;
+        user-select: none;
+
+        .loader__background {
+            display: block;
+        }
+    }
+
+    .loader {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+
+        width: 40px;
+        height: auto;
+        aspect-ratio: 1;
+        border-radius: 50%;
+        border: 5px solid var(--clr-accent);
+        animation:
+            l20-1 0.8s infinite linear alternate,
+            l20-2 1.6s infinite linear;
+
+        &__background {
+            display: none;
+            position: absolute;
+            inset: -20px;
+            backdrop-filter: blur(10px);
+            z-index: 10;
+        }
+
+        @keyframes l20-1 {
+            0% {
+                clip-path: polygon(
+                    50% 50%,
+                    0 0,
+                    50% 0%,
+                    50% 0%,
+                    50% 0%,
+                    50% 0%,
+                    50% 0%
+                );
+            }
+
+            12.5% {
+                clip-path: polygon(
+                    50% 50%,
+                    0 0,
+                    50% 0%,
+                    100% 0%,
+                    100% 0%,
+                    100% 0%,
+                    100% 0%
+                );
+            }
+
+            25% {
+                clip-path: polygon(
+                    50% 50%,
+                    0 0,
+                    50% 0%,
+                    100% 0%,
+                    100% 100%,
+                    100% 100%,
+                    100% 100%
+                );
+            }
+
+            50% {
+                clip-path: polygon(
+                    50% 50%,
+                    0 0,
+                    50% 0%,
+                    100% 0%,
+                    100% 100%,
+                    50% 100%,
+                    0% 100%
+                );
+            }
+
+            62.5% {
+                clip-path: polygon(
+                    50% 50%,
+                    100% 0,
+                    100% 0%,
+                    100% 0%,
+                    100% 100%,
+                    50% 100%,
+                    0% 100%
+                );
+            }
+
+            75% {
+                clip-path: polygon(
+                    50% 50%,
+                    100% 100%,
+                    100% 100%,
+                    100% 100%,
+                    100% 100%,
+                    50% 100%,
+                    0% 100%
+                );
+            }
+
+            100% {
+                clip-path: polygon(
+                    50% 50%,
+                    50% 100%,
+                    50% 100%,
+                    50% 100%,
+                    50% 100%,
+                    50% 100%,
+                    0% 100%
+                );
+            }
+        }
+
+        @keyframes l20-2 {
+            0% {
+                transform: translate(-100%, -50%) scaleY(1) rotate(0deg);
+            }
+
+            49.99% {
+                transform: translate(-100%, -50%) scaleY(1) rotate(135deg);
+            }
+
+            50% {
+                transform: translate(-100%, -50%) scaleY(-1) rotate(0deg);
+            }
+
+            100% {
+                transform: translate(-100%, -50%) scaleY(-1) rotate(-135deg);
+            }
         }
     }
 }

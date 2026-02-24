@@ -7,6 +7,15 @@
     color: var(--clr-text-muted);
     @include font(0.875rem);
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    gap: 10px;
+
+    @include mqMin($sm) {
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    @include mqMax($sm) {
+        flex-direction: column;
+        align-items: flex-start;
+    }
 }

@@ -1,15 +1,32 @@
 <script setup lang="ts">
-// import { useThemeStore } from "@/stores/theme";
-// const themeStore = useThemeStore();
+import { useGtm } from '@gtm-support/vue-gtm';
 
 defineOptions({
     name: "AppHeader",
 });
 
+const gtm = useGtm();
 
-// const toggleMenu = () => {
-//     console.log("toggle menu");
-// }
+const TRACK_CATEGORY = {
+    SOCIAL: 'Social',
+    NAVIGATION: 'Navigation',
+};
+
+const ACTION_CLICK = 'Click';
+
+const trackSocialClick = (platform: string) =>
+    gtm?.trackEvent({
+        category: TRACK_CATEGORY.SOCIAL,
+        action: ACTION_CLICK,
+        label: platform,
+    });
+
+const trackNavClick = (page: string) =>
+    gtm?.trackEvent({
+        category: TRACK_CATEGORY.NAVIGATION,
+        action: ACTION_CLICK,
+        label: page,
+    });
 </script>
 
 <template>
@@ -18,7 +35,7 @@ defineOptions({
             <ul class="header-nav__socials header-nav__group">
                 <li>
                     <a href="https://linkedin.com/in/gkiomisis" target="_blank" class="header-nav__link"
-                        aria-label="LinkedIn">
+                        aria-label="LinkedIn" @click="trackSocialClick('LinkedIn')">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                             viewBox="0 0 16 16">
                             <path
@@ -27,7 +44,8 @@ defineOptions({
                     </a>
                 </li>
                 <li>
-                    <a href="mailto:info@gkiomisis.com" class="header-nav__link" aria-label="Mail">
+                    <a href="mailto:info@gkiomisis.com" class="header-nav__link" aria-label="Mail"
+                        @click="trackSocialClick('Mail')">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                             viewBox="0 0 16 16">
                             <path
@@ -37,7 +55,7 @@ defineOptions({
                 </li>
                 <li>
                     <a href="https://github.com/ThanosGkiom" target="_blank" class="header-nav__link"
-                        aria-label="GitHub">
+                        aria-label="GitHub" @click="trackSocialClick('GitHub')">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                             viewBox="0 0 16 16">
                             <path
@@ -47,32 +65,23 @@ defineOptions({
                 </li>
             </ul>
 
-            <!-- <a href="#" class="header-nav__brand">Thanos</a> -->
-
             <div class="header-nav__group">
                 <ul class="header-nav__menu header-nav__group">
                     <li>
-                        <router-link :to="{ path: '/', hash: '#home' }" class="header-nav__link">home</router-link>
+                        <router-link :to="{ path: '/', hash: '#home' }" @click="trackNavClick('Home')"
+                            class="header-nav__link">home</router-link>
                     </li>
                     <li>
-                        <router-link :to="{ path: '/', hash: '#skills' }" class="header-nav__link">skills</router-link>
+                        <router-link :to="{ path: '/', hash: '#skills' }" @click="trackNavClick('Skills')"
+                            class="header-nav__link">skills</router-link>
                     </li>
                     <!-- <li><a href="#work" class="header-nav__link">Work</a></li> -->
                     <li>
-                        <router-link :to="{ path: '/', hash: '#contact' }" class="header-nav__link">contact
+                        <router-link :to="{ path: '/', hash: '#contact' }" @click="trackNavClick('Contact')"
+                            class="header-nav__link">contact
                         </router-link>
                     </li>
                 </ul>
-
-                <!-- <button @click="themeStore.toggleTheme" :class="'header-nav__theme-toggle ' + themeStore.theme"
-                    aria-label="Toggle theme">
-                </button> -->
-
-                <!-- <button type="button" class="menu-btn" aria-label="Toggle menu" @click="toggleMenu">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button> -->
             </div>
         </div>
     </header>

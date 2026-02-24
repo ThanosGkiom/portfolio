@@ -66,7 +66,7 @@ onMounted(async () => {
                         applications.
                     </p>
                     <p class="section-about__text">
-                        With over 2 years of experience in web development, I've worked on projects ranging from
+                        With over 2 years of professional experience in web development, I've worked on projects ranging from
                         digital media websites to e-commerce platforms. I believe in writing maintainable, semantic code
                         and creating interfaces that are both responsive and performant.
                     </p>
